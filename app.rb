@@ -14,7 +14,13 @@ module FormsLab
     end
 
     post '/pirates' do
-      puts params
+      attributes = params[:pirate]
+      @pirate = Pirate.new(attributes[:name], attributes[:weight], attributes[:height])
+
+      @ships = attributes[:ships].collect do |ship|
+        Ship.new(ship[:name], ship[:type], ship[:booty])
+      end
+      
       erb :"pirates/show"
     end
 
