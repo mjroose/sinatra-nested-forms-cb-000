@@ -20,7 +20,7 @@ module FormsLab
       @ships = attributes[:ships].collect do |ship|
         Ship.new(ship[:name], ship[:type], ship[:booty])
       end
-      
+
       erb :"pirates/show"
     end
 
